@@ -6,7 +6,7 @@ pub const GhosttyAnsiConvertor = struct { terminal: ghostty_vt.Terminal };
 const allocator = std.heap.page_allocator;
 
 pub export fn NewConvert() *GhosttyAnsiConvertor {
-    var conv = allocator.create(GhosttyAnsiConvertor) catch @panic("alloc");
+    var conv = allocator.create(GhosttyAnsiConvertor) catch @panic("error allocating");
     conv.terminal = ghostty_vt.Terminal.init(allocator, .{ .cols = 150, .rows = 80 }) catch @panic("failed on initializing ghostty terminal ");
     return conv;
 }

@@ -1,0 +1,17 @@
+.{
+    .name = .ansi_to_html,
+    .version = "0.0.0",
+    .fingerprint = 0xc9c3856c51275ad6, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.15.2",
+    .dependencies = .{
+        .ghostty = .{
+            .url = "git+https://github.com/ghostty-org/ghostty?ref=tip#038cdde3345604692cbb160e3e1aff448ca2999c",
+            .hash = "ghostty-1.3.0-dev-5UdBC36rYwMlTXTSJjr6Oq4ecl93r2PmGtpWV6jk53H5",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
