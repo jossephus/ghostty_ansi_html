@@ -1,5 +1,8 @@
 .zig-cache/
 zig-out/
 node_modules/
-
-*.so
+src/
+lib/
+*.ts
+!dist/
+!dist/*.d.ts

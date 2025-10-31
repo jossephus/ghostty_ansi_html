@@ -1,8 +1,12 @@
 {
   "name": "ghostty-ansi-html",
   "module": "index.ts",
-  "version": "0.0.2", 
-  "main": "./dist/index.js", 
+  "version": "0.0.4", 
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "ghostty-ansi-html": "./dist/cli.js"
+  },
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest"
@@ -12,6 +16,6 @@
   },
   "scripts": {
     "build:lib": "cd lib && zig build -Doptimize=Debug && cp -rvf zig-out/lib/* ../dist/",
-    "build": "bun build --target=bun ./src/index.ts --outdir ./dist && npm run build:lib"
+    "build": "bun build --target=bun ./src/index.ts --outdir ./dist --dts && bun build --target=bun ./src/bin/cli.ts --outdir ./dist && npm run build:lib"
   }
 }
