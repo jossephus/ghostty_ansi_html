@@ -7,10 +7,10 @@ export const {
 } = dlopen(path, {
 	NewConvert: {
 		args: [],
-		returns: "usize",
+		returns: "ptr",
 	},
 	convert: {
-		args: ["usize", FFIType.cstring],
+		args: ["ptr", FFIType.cstring],
 		returns: FFIType.cstring,
 	},
 });

@@ -32,8 +32,13 @@ pub export fn convert(convertor: *GhosttyAnsiConvertor, value: [*:0]const u8) [*
         .palette = &convertor.terminal.colors.palette.current,
     });
 
-    const html = std.fmt.allocPrint(allocator, "{f}", .{formatter}) catch @panic("alloc");
-    var html_z = allocator.realloc(html, html.len + 1) catch @panic("realloc");
-    html_z[html.len] = 0;
-    return @as([*:0]const u8, @ptrCast(html_z.ptr));
+    const html_slice = std.fmt.allocPrint(allocator, "{f}", .{formatter}) catch @panic("allocation error");
+    const out_len = html_slice.len;
+    var out_buf = allocator.alloc(u8, out_len + 1) catch @panic("Failed to alloc for buffer");
+    std.mem.copyForwards(u8, out_buf[0..out_len], html_slice);
+    out_buf[out_len] = 0;
+
+    allocator.free(html_slice);
+
+    return @as([*:0]const u8, @ptrCast(out_buf.ptr));
 }
