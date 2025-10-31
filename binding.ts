@@ -1,7 +1,6 @@
 import { dlopen, FFIType, suffix } from "bun:ffi";
 
 const path = `./lib/zig-out/lib/libghostty-ansi-html.so`;
-console.log(path);
 
 export const {
 	symbols: { NewConvert, convert },
