@@ -1,7 +1,8 @@
 {
   "name": "ghostty-ansi-html",
   "module": "index.ts",
-  "version": "0.0.10",
+  "version": "0.0.12",
+  "repository": "https://github.com/jossephus/ghostty_ansi_html.git",
   "files": [
     "dist"
   ], 

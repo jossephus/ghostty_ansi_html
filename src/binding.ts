@@ -9,7 +9,7 @@ if (typeof Bun !== "undefined") {
 	// use bun's ffi if we are running through bun
 	const { suffix, dlopen, FFIType } = await import("bun:ffi");
 
-	libPath = `${libPath}${suffix}`;
+	const libPath = `${import.meta.dir}/../dist/libghostty-ansi-html.${suffix}`;
 	const {
 		symbols: { NewConvert: newConvert, convert: conv },
 	} = dlopen(libPath, {
