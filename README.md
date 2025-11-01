@@ -6,10 +6,12 @@ libghostty recently added functionality to encode terminal contents to HTML [twe
 
 You can use it either as a library or as a binary to encode your terminal outputs in real time.
 
-### Init (requires bun)
-```
-bun add ghostty-ansi-html
+### Init
 
+You can use your favorite package manager to install ghostty-ansi-html.
+
+```sh
+bun add ghostty-ansi-html
 ```
 
 #### Usage 
@@ -24,7 +26,7 @@ console.log(convert.convert("\x1b[30mblack\x1b[37mwhite'"));
 ```
 
 ### Use It as Binary
-You can use it as bin using bunx. You can see your terminal outputs using 
+You can use it as bin using bunx/npx. You can see your terminal outputs using 
 ```
 neofetch | bun x ghostty-ansi-html
 ```
