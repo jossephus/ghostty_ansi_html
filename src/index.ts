@@ -9,6 +9,7 @@ export class Convert {
 
 	convert(input: string) {
 		const buffer = Buffer.from(input + "\0");
-		return convertLib(this.converter, buffer);
+		const result = convertLib(this.converter, buffer);
+		return result.toString();
 	}
 }
