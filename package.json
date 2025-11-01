@@ -18,7 +18,8 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
+    "build:windows": "cd lib && zig build -Dtarget=x86_64-windows -Doptimize=ReleaseSmall && cp -rvf zig-out/bin/* ../dist/",
     "build:lib": "cd lib && zig build && cp -rvf zig-out/lib/* ../dist/",
-    "build": "bun build --target=bun ./src/index.ts --outdir ./dist --dts && bun build --target=bun ./src/bin/cli.ts --outdir ./dist && npm run build:lib  && chmod +x dist/cli.js"
+    "build": "bun build --target=bun ./src/index.ts --outdir ./dist --dts && bun build --target=bun ./src/bin/cli.ts --outdir ./dist && npm run build:lib && npm run build:windows && chmod +x dist/cli.js"
   }
 }

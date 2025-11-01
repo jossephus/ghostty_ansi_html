@@ -10,7 +10,10 @@ pub fn build(b: *std.Build) !void {
         .target = target,
     });
 
-    if (b.lazyDependency("ghostty", .{})) |dep| {
+    if (b.lazyDependency("ghostty", .{
+        .target = target,
+        .optimize = optimize,
+    })) |dep| {
         mod.addImport(
             "ghostty-vt",
             dep.module("ghostty-vt"),
