@@ -19,7 +19,8 @@
   },
   "scripts": {
     "build:windows": "cd lib && zig build -Dtarget=x86_64-windows -Doptimize=ReleaseSmall && cp -rvf zig-out/bin/* ../dist/",
+    "build:node": "cd lib && zig build -Dbuild_node -Doptimize=ReleaseSmall && cp -rvf zig-out/lib/* ../dist/",
     "build:lib": "cd lib && zig build -Doptimize=ReleaseSmall && cp -rvf zig-out/lib/* ../dist/",
-    "build": "bun build --target=bun ./src/index.ts --outdir ./dist --dts && bun build --target=bun ./src/bin/cli.ts --outdir ./dist && npm run build:lib && npm run build:windows && chmod +x dist/cli.js"
+    "build": "bun build --target=bun ./src/index.ts --outdir ./dist --dts && bun build --target=bun ./src/bin/cli.ts --outdir ./dist && npm run build:lib && npm run build:windows && npm run build:node && chmod +x dist/cli.js"
   }
 }

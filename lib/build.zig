@@ -1,12 +1,17 @@
 const std = @import("std");
-const napigen = @import("napigen");
 
 pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
-    const mod = b.createModule(.{
+    const build_node = b.option(bool, "build_node", "Specify if this will be a node build ") orelse false;
+
+    const mod = if (!build_node) b.createModule(.{
         .root_source_file = b.path("root.zig"),
+        .optimize = optimize,
+        .target = target,
+    }) else b.createModule(.{
+        .root_source_file = b.path("node.zig"),
         .optimize = optimize,
         .target = target,
     });
@@ -21,32 +26,24 @@ pub fn build(b: *std.Build) !void {
         );
     }
 
-    const root_lib = b.addLibrary(.{
+    const root_lib = if (!build_node) b.addLibrary(.{
+        .name = "ghostty-ansi-html",
+        .root_module = mod,
+        .linkage = .dynamic,
+    }) else b.addLibrary(.{
         .name = "ghostty-ansi-html",
         .root_module = mod,
         .linkage = .dynamic,
     });
 
-    b.installArtifact(root_lib);
+    if (build_node) {
+        const node_api = b.dependency("node_api", .{});
+        root_lib.addIncludePath(node_api.path("include"));
+        b.installArtifact(root_lib);
 
-    const node_mod = b.createModule(.{
-        .root_source_file = b.path("node.zig"),
-        .optimize = optimize,
-        .target = target,
-    });
-
-    const node_lib = b.addLibrary(.{
-        .name = "example",
-        .root_module = node_mod,
-    });
-
-    // Add napigen
-    napigen.setup(node_lib);
-
-    // Build the lib
-    b.installArtifact(node_lib);
-
-    // Copy the result to a *.node file so we can require() it
-    const copy_node_step = b.addInstallLibFile(node_lib.getEmittedBin(), "example.node");
-    b.getInstallStep().dependOn(&copy_node_step.step);
+        const copy_node_step = b.addInstallLibFile(root_lib.getEmittedBin(), "libghostty-ansi-html.node");
+        b.getInstallStep().dependOn(&copy_node_step.step);
+    } else {
+        b.installArtifact(root_lib);
+    }
 }
