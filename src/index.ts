@@ -8,8 +8,12 @@ export class Convert {
 	}
 
 	convert(input: string) {
-		const buffer = Buffer.from(input + "\0");
-		const result = convertLib(this.converter, buffer);
-		return result.toString();
+		if (typeof Bun !== "undefined") {
+			const buffer = Buffer.from(input + "\x00");
+			const result = convertLib(this.converter, buffer);
+			return result.toString();
+		} else {
+			return convertLib(this.converter, input);
+		}
 	}
 }
