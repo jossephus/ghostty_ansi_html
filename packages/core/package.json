@@ -1,0 +1,30 @@
+{
+  "name": "ghostty-ansi-html",
+  "module": "index.ts",
+  "version": "0.0.13",
+  "repository": "https://github.com/jossephus/ghostty_ansi_html.git",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "ghostty-ansi-html": "./dist/cli.js"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "build": "bun build --target=bun ./src/index.ts --outdir ./dist --dts && bun build --target=bun ./src/bin/cli.ts --outdir ./dist "
+  },
+  "optionalDependencies": {
+    "ghostty-ansi-html-linux-x64": "^0.0.1",
+    "ghostty-ansi-html-linux-x64-node": "^0.0.1",
+    "ghostty-ansi-html-win32-x64": "^0.0.1",
+    "ghostty-ansi-html-win32-x64-node": "^0.0.1"
+  }
+}

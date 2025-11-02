@@ -1,0 +1,12 @@
+{
+  "name": "ghostty-ansi-html-linux-x64",
+  "version": "0.0.1",
+  "module": "index.ts",
+  "type": "module",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ]
+}

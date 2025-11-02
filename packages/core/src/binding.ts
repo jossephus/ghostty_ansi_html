@@ -1,15 +1,20 @@
-let libPath = `./dist/libghostty-ansi-html.${
-	typeof Bun !== "undefined" ? "" : "node"
-}`;
+//let libPath = `./dist/libghostty-ansi-html.${
+//typeof Bun !== "undefined" ? "" : "node"
+//}`;
+
+const libPackage = `ghostty-ansi-html-${process.platform}-${process.arch}${
+	typeof Bun !== "undefined" ? "" : "-node"
+}/index.ts`;
+const module = await import(libPackage);
+let libPath = module.default;
 
 let NewConvert;
 let convert;
 
 if (typeof Bun !== "undefined") {
 	// use bun's ffi if we are running through bun
-	const { suffix, dlopen, FFIType } = await import("bun:ffi");
+	const { dlopen, FFIType } = await import("bun:ffi");
 
-	const libPath = `${import.meta.dir}/../dist/libghostty-ansi-html.${suffix}`;
 	const {
 		symbols: { NewConvert: newConvert, convert: conv },
 	} = dlopen(libPath, {

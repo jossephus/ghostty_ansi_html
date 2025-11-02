@@ -1,27 +1,11 @@
 {
-  "name": "ghostty-ansi-html",
-  "module": "index.ts",
-  "version": "0.0.12",
-  "repository": "https://github.com/jossephus/ghostty_ansi_html.git",
-  "files": [
-    "dist"
-  ], 
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "bin": {
-    "ghostty-ansi-html": "./dist/cli.js"
-  },
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "scripts": {
-    "build:windows": "cd lib && zig build -Dtarget=x86_64-windows -Doptimize=ReleaseSmall && cp -rvf zig-out/bin/* ../dist/",
-    "build:node": "cd lib && zig build -Dbuild_node -Doptimize=ReleaseSmall && cp -rvf zig-out/lib/* ../dist/",
-    "build:lib": "cd lib && zig build -Doptimize=ReleaseSmall && cp -rvf zig-out/lib/* ../dist/",
-    "build": "bun build --target=bun ./src/index.ts --outdir ./dist --dts && bun build --target=bun ./src/bin/cli.ts --outdir ./dist && npm run build:lib && npm run build:windows && npm run build:node && chmod +x dist/cli.js"
-  }
+  "name": "ghostty-ansi-html-workspace",
+  "private": "true", 
+  "workspaces": [
+    "packages/core",
+    "packages/platforms/linux-x64",
+    "packages/platforms/windows-x64",
+    "packages/platforms/linux-x64-node"
+  ],
+  "type": "module"
 }
