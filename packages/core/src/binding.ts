@@ -2,11 +2,10 @@
 //typeof Bun !== "undefined" ? "" : "node"
 //}`;
 
-const module = await import(
-	`ghostty-ansi-html-${process.platform}-${process.arch}${
-		typeof Bun !== "undefined" ? "" : "-node"
-	}/index.ts`
-);
+const libPackage = `ghostty-ansi-html-${process.platform}-${process.arch}${
+	typeof Bun !== "undefined" ? "" : "-node"
+}/index.ts`;
+const module = await import(libPackage);
 let libPath = module.default;
 
 let NewConvert;
