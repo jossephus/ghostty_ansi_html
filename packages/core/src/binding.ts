@@ -3,7 +3,9 @@
 //}`;
 
 const module = await import(
-	`ghostty-ansi-html-${process.platform}-${process.arch}/index.ts`
+	`ghostty-ansi-html-${process.platform}-${process.arch}${
+		typeof Bun !== "undefined" ? "" : "-node"
+	}/index.ts`
 );
 let libPath = module.default;
 

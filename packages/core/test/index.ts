@@ -1,4 +1,4 @@
-import { Convert } from "../dist";
+import { Convert } from "../src/";
 
 var convert = new Convert();
 

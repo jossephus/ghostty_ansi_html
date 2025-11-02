@@ -22,6 +22,8 @@
     "build": "bun build --target=bun ./src/index.ts --outdir ./dist --dts && bun build --target=bun ./src/bin/cli.ts --outdir ./dist "
   },
   "optionalDependencies": {
-    "ghostty-ansi-html-linux-x64": "^0.0.1"
+    "ghostty-ansi-html-linux-x64": "^0.0.1",
+    "ghostty-ansi-html-linux-x64-node": "^0.0.1",
+    "ghostty-ansi-html-win32-x64": "^0.0.1"
   }
 }

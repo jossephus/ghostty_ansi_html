@@ -8,6 +8,8 @@
       },
       "optionalDependencies": {
         "ghostty-ansi-html-linux-x64": "^0.0.1",
+        "ghostty-ansi-html-linux-x64-node": "^0.0.1",
+        "ghostty-ansi-html-win32-x64": "^0.0.1",
       },
       "peerDependencies": {
         "typescript": "^5.0.0",
@@ -26,6 +28,10 @@
     "csstype": ["csstype@3.1.3", "", {}, "sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw=="],
 
     "ghostty-ansi-html-linux-x64": ["ghostty-ansi-html-linux-x64@0.0.1", "", { "os": "linux", "cpu": "x64" }, "sha512-UB8Iv8WDAWCDRlFp51GqS9xxUzUiyPG9/NoutVoJ4CfY1fzSn8P2r3iELZ3+Xt2DFM2T/rxN1KMssyNh/AqBsw=="],
+
+    "ghostty-ansi-html-linux-x64-node": ["ghostty-ansi-html-linux-x64-node@0.0.1", "", { "os": "linux", "cpu": "x64" }, "sha512-22+LSoGAHDOQynhfNIHvruP2fPLrKtgn8ikGgGtpp4X/jRkHOj6y0HuqU1Jn3ZS5hD8I1F1+flQMuABNyQEQVw=="],
+
+    "ghostty-ansi-html-win32-x64": ["ghostty-ansi-html-win32-x64@0.0.1", "", { "os": "win32", "cpu": "x64" }, "sha512-/osS3hAfhF6wcbc1ngU26R9hIfMEGZPX8Nv0/x7PT45dV4o9zbiiSDJK2VF1ZiVBYIdJS/nw3nz1LPfh184d8w=="],
 
     "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
 
