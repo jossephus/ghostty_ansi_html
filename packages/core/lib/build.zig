@@ -41,7 +41,7 @@ pub fn build(b: *std.Build) !void {
         root_lib.addIncludePath(node_api.path("include"));
 
         if (target.result.os.tag == .windows) {
-            root_lib.linkSystemLibrary("node.lib");
+            //root_lib.linkSystemLibrary("node.lib");
 
             // From: https://github.com/cztomsik/napigen/commit/007b4bc8751cf78879288048013fbb62e050a072
             const node_lib = b.addSystemCommand(&.{ b.graph.zig_exe, "dlltool", "-m", "i386:x86-64", "-D", "node.exe", "-l", "node.lib", "-d" });
