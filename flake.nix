@@ -25,6 +25,7 @@
           zigpkgs."0.15.2"
           bun
           nodejs_24
+          tree
         ];
       in {
         devShell = pkgs.mkShell {

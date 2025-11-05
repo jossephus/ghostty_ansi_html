@@ -8,7 +8,8 @@ if [ -z "$tag" ]; then
 fi
 
 cd packages/core/lib
-zig build
+zig build -Doptimize=ReleaseSmall
+tree zig-out/
 cd ../../../
 
 platform_directories=(

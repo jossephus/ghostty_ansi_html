@@ -21,6 +21,7 @@ jobs:
       - name: nix shell # Test the waters
         run: nix develop -L --verbose
 
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
       - name: release new version
         run: nix develop -c bash -c './scripts/release.sh ${{ github.ref_name }}'
