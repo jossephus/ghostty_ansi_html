@@ -7,6 +7,9 @@ if [ -z "$tag" ]; then
   exit 1
 fi
 
+# Strip leading 'v' if present
+tag=${tag#v}
+
 cd packages/core/lib
 zig build -Doptimize=ReleaseSmall
 tree zig-out/
@@ -29,9 +32,14 @@ package_dirs=(
 for i in "${!platform_directories[@]}"; do
   native_lib="${platform_directories[$i]}"
   package_dir="${package_dirs[$i]}"
-  cp -rvf "$native_lib" "$package_dir"
-  sed -i "s/\"version\": \"[^\"]*\"/\"version\": \"$tag\"/" "$package_dir/package.json"
-  cd "$package_dir" && bun publish && cd ../../../
+  if [ -f "$native_lib" ]; then
+    cp -rvf "$native_lib" "$package_dir"
+    sed -i "s/\"version\": \"[^\"]*\"/\"version\": \"$tag\"/" "$package_dir/package.json"
+    cd "$package_dir" && bun publish
+    cd ../../../
+  else
+    echo "Skipping $package_dir: $native_lib not found"
+  fi
 done
 
 cd packages/core

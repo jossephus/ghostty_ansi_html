@@ -1,0 +1,17 @@
+{
+  "lockfileVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "ghostty-ansi-html-linux-x64",
+      "dependencies": {
+        "ghostty-ansi-html-linux-x64": "^0.0.1",
+        "ghostty-ansi-html-linux-x64-node": "^0.0.1",
+      },
+    },
+  },
+  "packages": {
+    "ghostty-ansi-html-linux-x64": ["ghostty-ansi-html-linux-x64@0.0.1", "", { "os": "linux", "cpu": "x64" }, "sha512-UB8Iv8WDAWCDRlFp51GqS9xxUzUiyPG9/NoutVoJ4CfY1fzSn8P2r3iELZ3+Xt2DFM2T/rxN1KMssyNh/AqBsw=="],
+
+    "ghostty-ansi-html-linux-x64-node": ["ghostty-ansi-html-linux-x64-node@0.0.1", "", { "os": "linux", "cpu": "x64" }, "sha512-22+LSoGAHDOQynhfNIHvruP2fPLrKtgn8ikGgGtpp4X/jRkHOj6y0HuqU1Jn3ZS5hD8I1F1+flQMuABNyQEQVw=="],
+  }
+}

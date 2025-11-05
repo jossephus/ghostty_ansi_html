@@ -26,6 +26,7 @@ jobs:
       - name: release new version
         run: nix develop -c bash -c './scripts/release.sh ${{ github.ref_name }}'
         env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - run: nix develop -L -c npx changelogithub
