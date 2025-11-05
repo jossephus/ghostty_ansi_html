@@ -31,7 +31,7 @@ for i in "${!platform_directories[@]}"; do
   package_dir="${package_dirs[$i]}"
   cp -rvf "$native_lib" "$package_dir"
   sed -i "s/\"version\": \"[^\"]*\"/\"version\": \"$tag\"/" "$package_dir/package.json"
-  cd "$package_dir" && bun publish
+  cd "$package_dir" && bun publish && cd ../../../
 done
 
 cd packages/core
