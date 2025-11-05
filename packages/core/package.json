@@ -1,7 +1,7 @@
 {
   "name": "ghostty-ansi-html",
   "module": "index.ts",
-  "version": "0.0.14-canary-3",
+  "version": "0.0.14-canary-4",
   "repository": "https://github.com/jossephus/ghostty_ansi_html.git",
   "files": [
     "dist"
