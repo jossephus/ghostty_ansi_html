@@ -1,12 +1,12 @@
 {
-  "name": "ghostty-ansi-html-linux-x64",
+  "name": "ghostty-ansi-html-darwin-arm64",
   "version": "0.0.15-beta-2",
   "module": "index.ts",
   "type": "module",
   "os": [
-    "linux"
+    "darwin"
   ],
   "cpu": [
-    "x64"
+    "arm64"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "ghostty-ansi-html",
   "module": "index.ts",
-  "version": "0.0.14",
+  "version": "0.0.15-beta-2",
   "repository": "https://github.com/jossephus/ghostty_ansi_html.git",
   "files": [
     "dist"
@@ -23,9 +23,11 @@
     "build": "bun build --target=bun ./src/index.ts --outdir ./dist --dts && bun build --target=bun ./src/bin/cli.ts --outdir ./dist "
   },
   "optionalDependencies": {
-    "ghostty-ansi-html-linux-x64": "^0.0.14",
-    "ghostty-ansi-html-linux-x64-node": "^0.0.14",
-    "ghostty-ansi-html-win32-x64": "^0.0.14",
-    "ghostty-ansi-html-win32-x64-node": "^0.0.14"
+    "ghostty-ansi-html-linux-x64": "0.0.15-beta-2",
+    "ghostty-ansi-html-linux-x64-node": "0.0.15-beta-2",
+    "ghostty-ansi-html-win32-x64": "0.0.15-beta-2",
+    "ghostty-ansi-html-win32-x64-node": "0.0.15-beta-2",
+    "ghostty-ansi-html-darwin-arm64": "^0.0.15-beta-2",
+    "ghostty-ansi-html-darwin-arm64-node": "^0.0.15-beta-2"
   }
 }
