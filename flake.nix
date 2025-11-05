@@ -30,6 +30,9 @@
         devShell = pkgs.mkShell {
           buildInputs = packages;
           nativeBuildInputs = with pkgs; [];
+          shellHook = ''
+            export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+          '';
         };
       }
     );

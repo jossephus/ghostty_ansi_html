@@ -7,9 +7,11 @@ const TargetOptions = struct {
 
 const build_targets: []const TargetOptions = &.{
     .{ .target_query = .{ .cpu_arch = .x86_64, .os_tag = .linux, .abi = .gnu } },
+    .{ .target_query = .{ .cpu_arch = .aarch64, .os_tag = .macos, } },
     .{ .target_query = .{ .cpu_arch = .x86_64, .os_tag = .windows } },
     .{ .build_node = true, .target_query = .{ .cpu_arch = .x86_64, .os_tag = .linux, .abi = .gnu } },
     .{ .build_node = true, .target_query = .{ .cpu_arch = .x86_64, .os_tag = .windows } },
+    .{ .build_node = true, .target_query = .{ .cpu_arch = .aarch64, .os_tag = .macos, } },
 };
 
 pub fn build(b: *std.Build) !void {
@@ -67,6 +69,8 @@ pub fn build(b: *std.Build) !void {
 
                 root_lib.addLibraryPath(node_lib.cwd.?);
                 root_lib.linkSystemLibrary("node");
+            } else if (target.result.os.tag == .macos) {
+                root_lib.linker_allow_shlib_undefined = true;
             }
 
             b.installArtifact(root_lib);

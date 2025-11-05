@@ -16,6 +16,8 @@ platform_directories=(
   "./packages/core/lib/zig-out/lib/libghostty-ansi-html-linux.node"
   "./packages/core/lib/zig-out/bin/ghostty-ansi-html.dll"
   "./packages/core/lib/zig-out/lib/libghostty-ansi-html-windows.node"
+  "./packages/core/lib/zig-out/lib/libghostty-ansi-html.dylib"
+  "./packages/core/lib/zig-out/lib/libghostty-ansi-html-macos.node"
 )
 
 package_dirs=(
@@ -23,6 +25,8 @@ package_dirs=(
   "packages/platforms/linux-x64-node"
   "packages/platforms/win32-x64"
   "packages/platforms/win32-x64-node"
+  "packages/platforms/darwin-arm64"
+  "packages/platforms/darwin-arm64-node"
 )
 
 for i in "${!platform_directories[@]}"; do
@@ -39,5 +43,7 @@ bun update ghostty-ansi-html-linux-x64@$tag
 bun update ghostty-ansi-html-linux-x64-node@$tag
 bun update ghostty-ansi-html-win32-x64@$tag
 bun update ghostty-ansi-html-win32-x64-node@$tag
+bun update ghostty-ansi-html-darwin-arm64@$tag
+bun update ghostty-ansi-html-darwin-arm64-node@$tag
 bun run build
-#bun publish
+bun publish
