@@ -1,0 +1,38 @@
+on:
+  push:
+    tags:
+      - "*"
+
+name: Release
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      id-token: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: nix shell # Test the waters
+        run: nix develop -L --verbose
+
+
+      - name: release new version
+        run: nix develop -c bash -c './scripts/release.sh ${{ github.ref_name }}'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - run: nix develop -L -c npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: upload library
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+
