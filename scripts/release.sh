@@ -8,7 +8,7 @@ if [ -z "$tag" ]; then
 fi
 
 cd packages/core/lib
-zig build
+zig build -Doptimize=ReleaseSmall
 cd ../../../
 
 platform_directories=(
@@ -31,12 +31,13 @@ for i in "${!platform_directories[@]}"; do
   cp -rvf "$native_lib" "$package_dir"
   sed -i "s/\"version\": \"[^\"]*\"/\"version\": \"$tag\"/" "$package_dir/package.json"
   cd "$package_dir" && bun publish
+  cd ../../../
 done
 
 cd packages/core
-bun update ghostty-ansi-html-linux-x64 
-bun update ghostty-ansi-html-linux-x64-node
-bun update ghostty-ansi-html-win32-x64
-bun update ghostty-ansi-html-linux-x64-node
+bun update ghostty-ansi-html-linux-x64@$tag
+bun update ghostty-ansi-html-linux-x64-node@$tag
+bun update ghostty-ansi-html-win32-x64@$tag
+bun update ghostty-ansi-html-win32-x64-node@$tag
 bun run build
-bun publish
+#bun publish

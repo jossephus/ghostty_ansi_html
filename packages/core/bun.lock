@@ -8,10 +8,10 @@
         "vitest": "^4.0.7",
       },
       "optionalDependencies": {
-        "ghostty-ansi-html-linux-x64": "^0.0.1",
-        "ghostty-ansi-html-linux-x64-node": "^0.0.1",
-        "ghostty-ansi-html-win32-x64": "^0.0.1",
-        "ghostty-ansi-html-win32-x64-node": "^0.0.1",
+        "ghostty-ansi-html-linux-x64": "^0.0.14",
+        "ghostty-ansi-html-linux-x64-node": "^0.0.14",
+        "ghostty-ansi-html-win32-x64": "^0.0.14",
+        "ghostty-ansi-html-win32-x64-node": "0.0.14",
       },
       "peerDependencies": {
         "typescript": "^5.9.3",
@@ -167,13 +167,13 @@
 
     "fsevents": ["fsevents@2.3.3", "", { "os": "darwin" }, "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw=="],
 
-    "ghostty-ansi-html-linux-x64": ["ghostty-ansi-html-linux-x64@0.0.1", "", { "os": "linux", "cpu": "x64" }, "sha512-UB8Iv8WDAWCDRlFp51GqS9xxUzUiyPG9/NoutVoJ4CfY1fzSn8P2r3iELZ3+Xt2DFM2T/rxN1KMssyNh/AqBsw=="],
+    "ghostty-ansi-html-linux-x64": ["ghostty-ansi-html-linux-x64@0.0.14", "", { "os": "linux", "cpu": "x64" }, "sha512-FjMMGHCHx3RO9XOtwTQdcPnVTKwVb5HeZnLtEn9ONESMNaDO8leUyXSiPxtLyboujcdrW8pyNE57AVljlichFg=="],
 
-    "ghostty-ansi-html-linux-x64-node": ["ghostty-ansi-html-linux-x64-node@0.0.1", "", { "os": "linux", "cpu": "x64" }, "sha512-22+LSoGAHDOQynhfNIHvruP2fPLrKtgn8ikGgGtpp4X/jRkHOj6y0HuqU1Jn3ZS5hD8I1F1+flQMuABNyQEQVw=="],
+    "ghostty-ansi-html-linux-x64-node": ["ghostty-ansi-html-linux-x64-node@0.0.14", "", { "os": "linux", "cpu": "x64" }, "sha512-6R7tO9m1rG94/clhnMtDtqeA65dwp3oliRn74JaqkOg3CtEvYYifFT22b88nohUv9AGoHLei5U82WcqYSDVYOg=="],
 
-    "ghostty-ansi-html-win32-x64": ["ghostty-ansi-html-win32-x64@0.0.1", "", { "os": "win32", "cpu": "x64" }, "sha512-/osS3hAfhF6wcbc1ngU26R9hIfMEGZPX8Nv0/x7PT45dV4o9zbiiSDJK2VF1ZiVBYIdJS/nw3nz1LPfh184d8w=="],
+    "ghostty-ansi-html-win32-x64": ["ghostty-ansi-html-win32-x64@0.0.14", "", { "os": "win32", "cpu": "x64" }, "sha512-4oNNelVmZe0gU44X1jjqP/QTeZTUAg6GgEGEk0hZb47eoPek0RYfkqTY7IeE5FIEGnV6OvLrn0u34pkFojKZFQ=="],
 
-    "ghostty-ansi-html-win32-x64-node": ["ghostty-ansi-html-win32-x64-node@0.0.1", "", { "os": "win32", "cpu": "x64" }, "sha512-TTEPw88xxVzhn8MGS6AQnK/0aq6T2uPRHer5uoJawXmMMNgb8mmBR/M4BjjUzB9pFfOtFMPV6HUkdmSaQpyXpQ=="],
+    "ghostty-ansi-html-win32-x64-node": ["ghostty-ansi-html-win32-x64-node@0.0.14", "", { "os": "win32", "cpu": "x64" }, "sha512-fxt0V6v1nsLlkYdwMkNAL+JTEbykso/SwJYUSd15ZKjhtQfu1bWOs6vs9sXKaKZRxNsWDhLmqWWul4Wk9GeQJA=="],
 
     "magic-string": ["magic-string@0.30.21", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.5" } }, "sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ=="],
 
